@@ -1,8 +1,10 @@
 hub:
   image: selenium/hub
+  restart: always
   ports:
     - "4444:4444"
 firefox:
   image: selenium/node-firefox
+  restart: always
   links:
     - hub
