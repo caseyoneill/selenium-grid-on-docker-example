@@ -2,8 +2,12 @@ hub:
   image: selenium/hub
   restart: always
   environment: 
-    - GRID_TIMEOUT=240000
-    - GRID_BROWSER_TIMEOUT=290
+    - GRID_TIMEOUT=160000
+    - GRID_BROWSER_TIMEOUT=150000
+    - GRID_MAX_SESSION=1
+    - GRID_NODE_POLLING=5000
+    - GRID_CLEAN_UP_CYCLE=5000
+    - GRID_UNREGISTER_IF_STILL_DOWN_AFTER=90000
   ports:
     - "4444:4444"
 firefox:
