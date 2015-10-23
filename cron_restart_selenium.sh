@@ -30,11 +30,15 @@ then
       exit 0
     fi
 
+	#print timestamp
+	date
     echo "Restart was last run $DIFF minutes ago"
-    echo ""
+else
+	#print timestamp
+	date
 fi
+
 #restart grid
-date
 echo "Restarting grid"
 cd /home/ubuntu/grid
 docker-compose kill
