@@ -47,3 +47,6 @@ docker-compose up -d
 #log last time restarted
 #sudo bash -c 'date +%s > '"$LOG_DIR/$TIMESTAMP_FILE"
 date +%s > $LOG_DIR/$TIMESTAMP_FILE
+
+#add space to end of log file
+echo ""
