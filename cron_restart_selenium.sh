@@ -24,14 +24,23 @@ then
     CURRENT_TIMESTAMP=$((10#$(date +%s) + 1))
     DIFF="$(( ($CURRENT_TIMESTAMP - $LAST_RESTART)/60 ))"
 
+    #check if it's been a set number of minutes since last restart
     if [ "$DIFF" -le "$MINS_SINCE_UPDATE" ]
     then
       #it hasn't been long enough between restarts, exit
       exit 0
     fi
 
-	#print timestamp
-	date
+    #only run restart if there are no firefox instances running. subtract one to account for grep command being counted
+    NUM_FIREFOX=$((10#$(ps -ef | grep firefox | wc -l) - 1))
+    if [ $NUM_FIREFOX -ne 0 ]
+    then
+      #firefox is running
+      exit 0
+    fi
+
+    #print timestamp
+    date
     echo "Restart was last run $DIFF minutes ago"
 else
 	#print timestamp
