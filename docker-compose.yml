@@ -1,5 +1,5 @@
 hub:
-  image: selenium/hub:2.49.1
+  image: selenium/hub:2.47.1
   restart: always
   environment: 
     - GRID_TIMEOUT=160000
@@ -11,7 +11,7 @@ hub:
   ports:
     - "4444:4444"
 firefox:
-  image: selenium/node-firefox:2.49.1
+  image: selenium/node-firefox:2.47.1
   restart: always
   links:
     - hub
